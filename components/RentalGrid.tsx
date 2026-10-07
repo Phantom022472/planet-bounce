@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { categories, rentals, type Category, type Rental } from "@/content/rentals";
 import { business } from "@/content/business";
@@ -45,14 +46,20 @@ function RentalCard({ rental }: { rental: Rental }) {
           ))}
           <li>Blower &amp; cord included</li>
         </ul>
-        <a
-          className="btn btn-blue"
-          href={`sms:${business.phoneRaw}?&body=${encodeURIComponent(
-            `Hi Planet Bounce! I'd like to book the ${rental.name}. My party date is: `,
-          )}`}
-        >
-          Text to book
-        </a>
+        {rental.price ? (
+          <Link className="btn btn-red" href={`/book/?rental=${rental.slug}`}>
+            Book online
+          </Link>
+        ) : (
+          <a
+            className="btn btn-blue"
+            href={`sms:${business.phoneRaw}?&body=${encodeURIComponent(
+              `Hi Planet Bounce! How much is the ${rental.name}, and is it open on my date? `,
+            )}`}
+          >
+            Text for price
+          </a>
+        )}
       </div>
     </article>
   );

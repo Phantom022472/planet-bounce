@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Lilita_One, Nunito_Sans } from "next/font/google";
 import "./globals.css";
+import { ViewSwitch } from "@/components/ViewSwitch";
 
 const display = Lilita_One({ weight: "400", subsets: ["latin"], variable: "--font-display" });
 const body = Nunito_Sans({ subsets: ["latin"], variable: "--font-body" });
@@ -21,7 +22,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body>{children}</body>
+      <body>
+        <ViewSwitch />
+        {children}
+      </body>
     </html>
   );
 }

@@ -72,12 +72,12 @@ export default function Home() {
               <li>
                 <span className="n">1</span>
                 <h3>Pick a rental and a date</h3>
-                <p>Browse above and choose what fits your yard and your crowd.</p>
+                <p>You&apos;ll only see dates that are still open.</p>
               </li>
               <li>
                 <span className="n">2</span>
-                <h3>Text or call us</h3>
-                <p>We confirm your date and take a {deposit}% deposit to hold it.</p>
+                <h3>Sign and pay the deposit</h3>
+                <p>Sign the rental agreement on your phone and pay {deposit}% to hold your date.</p>
               </li>
               <li>
                 <span className="n">3</span>
@@ -97,7 +97,7 @@ export default function Home() {
             </details>
             <details>
               <summary>How do I hold my date?</summary>
-              <p>A {deposit}% deposit holds your date. The rest is due before your party.</p>
+              <p>Book online and pay a {deposit}% deposit to hold your date. The rest is due before setup.</p>
             </details>
             <details>
               <summary>Is tax included in the price?</summary>
