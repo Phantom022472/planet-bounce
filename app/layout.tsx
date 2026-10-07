@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bungee, Bungee_Shade, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import { Stars } from "@/components/Stars";
+import { UpdateBanner } from "@/components/UpdateBanner";
 import { ViewSwitch } from "@/components/ViewSwitch";
 
 const display = Bungee({ weight: "400", subsets: ["latin"], variable: "--font-display" });
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Stars />
         <ViewSwitch />
+        <UpdateBanner />
         {children}
       </body>
     </html>

@@ -453,3 +453,12 @@ p { margin: 0; }
 .ocheck input { width: 22px; height: 22px; accent-color: var(--green); }
 .odone { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
 .odone .oic { background: #e3f6e8; color: #1c7a35; width: 56px; height: 56px; font-size: 28px; border-radius: 50%; }
+
+/* ---------- "New update ready" panel (test mode only) ---------- */
+.update { position: fixed; z-index: 90; left: 50%; transform: translateX(-50%); top: calc(12px + env(safe-area-inset-top, 0px)); width: min(calc(100% - 24px), 520px); display: flex; align-items: center; gap: 12px; padding: 10px 10px 10px 16px; border-radius: 18px; background: #0e1c4d; color: #fff; border: 1px solid var(--cyan); box-shadow: 0 0 0 4px rgba(51,225,255,.15), 0 16px 40px rgba(0,0,0,.5); font-size: 15px; animation: drop .35s ease-out; }
+.update span { flex: 1; min-width: 0; color: var(--soft); }
+.update b { color: #fff; }
+.update .btn { flex: none; box-shadow: 0 3px 0 #b98700; }
+.update-x { flex: none; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(255,255,255,.1); color: #fff; cursor: pointer; font-size: 14px; }
+@keyframes drop { from { transform: translate(-50%, -20px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .update { animation: none; } }
