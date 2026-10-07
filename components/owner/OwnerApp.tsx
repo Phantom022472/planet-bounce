@@ -155,7 +155,7 @@ export function OwnerApp() {
             <h1>{TITLES[tab]}</h1>
             <small>{tab === "today" ? new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" }) : "Planet Bounce owners"}</small>
           </div>
-          <img src={asset("/logo.png")} alt="" width={44} height={46} />
+          <img src={asset("/logo.png")} alt="" width={48} height={48} />
         </header>
 
         <main className="obody">

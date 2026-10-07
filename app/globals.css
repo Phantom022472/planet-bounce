@@ -44,7 +44,7 @@ p { margin: 0; }
 /* Header + hero */
 .top { background: var(--sky); }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
-.logo img { width: 64px; height: auto; border-radius: 12px; box-shadow: 0 4px 14px #14213d33; }
+.logo img { width: 88px; height: auto; filter: drop-shadow(0 6px 14px #14213d40); }
 .links { display: flex; gap: 26px; font-weight: 800; }
 .links a { text-decoration: none; }
 .links a:hover { color: var(--blue); }
@@ -158,7 +158,7 @@ p { margin: 0; }
 
 /* ---------- Booking ---------- */
 .mini .nav { padding-block: 10px; }
-.mini .logo img { width: 56px; }
+.mini .logo img { width: 64px; }
 .back { font-weight: 800; text-decoration: none; margin-right: auto; }
 .nav-phone { min-height: 44px; font-size: 15px; }
 .book-page { padding-block: 26px 80px; }
@@ -278,7 +278,7 @@ p { margin: 0; }
 .viewswitch span { padding: 0 8px 0 4px; opacity: .75; }
 .viewswitch a { text-decoration: none; padding: 6px 16px; border-radius: 999px; min-height: 34px; display: inline-flex; align-items: center; }
 .viewswitch a[aria-current="page"] { background: var(--yellow); color: var(--ink); }
-@media (min-width: 721px) { .viewswitch { position: fixed; top: 12px; right: 12px; padding: 5px; border-radius: 999px; box-shadow: 0 8px 24px rgba(20,33,61,.3); } }
+@media (min-width: 721px) { .viewswitch { position: fixed; top: auto; bottom: 16px; left: 16px; padding: 5px; border-radius: 999px; box-shadow: 0 8px 24px rgba(20,33,61,.3); } }
 
 /* ---------- Owner app ---------- */
 .owner { min-height: 100vh; background: linear-gradient(160deg, var(--blue-deep), var(--blue)); padding: 0 0 40px; }
@@ -287,7 +287,7 @@ p { margin: 0; }
 .obar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 18px 14px; background: #fff; border-bottom: 1px solid var(--line); }
 .obar h1 { font-size: 30px; }
 .obar small { color: var(--muted); font-size: 14px; }
-.obar img { width: 44px; height: auto; }
+.obar img { width: 52px; height: auto; }
 .obody { flex: 1; padding: 14px 14px 90px; display: flex; flex-direction: column; gap: 12px; }
 @media (min-width: 721px) { .obody { padding-bottom: 90px; } }
 .otest { background: #fff6d6; border: 1px solid #f1d67a; border-radius: 12px; padding: 8px 12px; font-size: 14px; }

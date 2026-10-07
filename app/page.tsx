@@ -14,7 +14,7 @@ export default function Home() {
       <header className="top" id="top">
         <div className="wrap nav">
           <a href="#top" className="logo">
-            <img src={asset("/logo.png")} alt="Planet Bounce Party Rentals" width={64} height={66} />
+            <img src={asset("/logo.png")} alt="Planet Bounce Party Rentals" width={88} height={88} />
           </a>
           <nav className="links" aria-label="Main">
             <a href="#rentals">Rentals</a>
