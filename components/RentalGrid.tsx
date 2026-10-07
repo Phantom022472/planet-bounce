@@ -7,55 +7,44 @@ import { business } from "@/content/business";
 import { asset } from "@/lib/asset";
 
 const photo = (name: string) => asset(`/rentals/${name}.jpg`);
+const TAGS: Record<Category, string> = { bounce: "Bounce", combo: "Combo", water: "Wet or dry", game: "Game" };
 
 function RentalCard({ rental }: { rental: Rental }) {
-  const [current, setCurrent] = useState(rental.photos[0]);
+  const [n, setN] = useState(0);
+  const many = rental.photos.length > 1;
+  const current = rental.photos[n];
   return (
     <article className="card" id={rental.slug}>
-      <div className="card-photo">
-        <img
-          src={photo(current)}
-          alt={rental.name}
-          loading="lazy"
-          style={{ objectPosition: current === rental.photos[0] ? rental.photoFocus : undefined }}
-        />
-        <span className={`pricetag${rental.price ? "" : " tbd"}`}>
-          {rental.price ? `$${rental.price}` : "Call for price"}
-        </span>
-      </div>
-      {rental.photos.length > 1 && (
-        <div className="thumbs">
-          {rental.photos.map((p, i) => (
-            <button
-              key={p}
-              type="button"
-              aria-pressed={p === current}
-              aria-label={`Photo ${i + 1} of ${rental.name}`}
-              onClick={() => setCurrent(p)}
-            >
-              <img src={photo(p)} alt="" loading="lazy" />
-            </button>
-          ))}
+      <button
+        type="button"
+        className="ph"
+        disabled={!many}
+        onClick={() => setN((x) => (x + 1) % rental.photos.length)}
+        aria-label={many ? `Next photo of ${rental.name}` : undefined}
+      >
+        <img src={photo(current)} alt={rental.name} loading="lazy" style={{ objectPosition: n === 0 ? rental.photoFocus : undefined }} />
+        <span className="cat">{TAGS[rental.category]}</span>
+        {many && (
+          <span className="dots" aria-hidden="true">
+            {rental.photos.map((p, i) => <i key={p} className={i === n ? "on" : ""} />)}
+          </span>
+        )}
+      </button>
+      <div className="b">
+        <div className="row">
+          <h3>{rental.name}</h3>
+          <span className={`price${rental.price ? "" : " soon"}`}>{rental.price ? `$${rental.price}` : "Text for price"}</span>
         </div>
-      )}
-      <div className="card-body">
-        <h3>{rental.name}</h3>
         <ul className="features">
-          {rental.features.map((f) => (
-            <li key={f}>{f}</li>
-          ))}
+          {rental.features.map((f) => <li key={f}>{f}</li>)}
           <li>Blower &amp; cord included</li>
         </ul>
         {rental.price ? (
-          <Link className="btn btn-red" href={`/book/?rental=${rental.slug}`}>
-            Book online
-          </Link>
+          <Link className="btn btn-gold" href={`/book/?rental=${rental.slug}`}>Book online</Link>
         ) : (
           <a
-            className="btn btn-blue"
-            href={`sms:${business.phoneRaw}?&body=${encodeURIComponent(
-              `Hi Planet Bounce! How much is the ${rental.name}, and is it open on my date? `,
-            )}`}
+            className="btn btn-ghost"
+            href={`sms:${business.phoneRaw}?&body=${encodeURIComponent(`Hi Planet Bounce! How much is the ${rental.name}, and is it open on my date? `)}`}
           >
             Text for price
           </a>
@@ -81,9 +70,7 @@ export function RentalGrid() {
           ))}
       </div>
       <div className="grid">
-        {shown.map((r) => (
-          <RentalCard key={r.slug} rental={r} />
-        ))}
+        {shown.map((r) => <RentalCard key={r.slug} rental={r} />)}
       </div>
     </>
   );

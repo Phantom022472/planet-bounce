@@ -53,9 +53,10 @@ export async function getUnavailableDates(slug: string, from: string, to: string
     const out: string[] = [];
     const d = new Date(`${from}T12:00:00`);
     const end = new Date(`${to}T12:00:00`);
-    let n = slug.length;
     while (d <= end) {
-      if (d.getDay() === 6 && n++ % 3 === 0) out.push(isoDate(d));
+      // Same answer for a given Saturday no matter which range is asked for.
+      const week = Math.floor(d.getTime() / 604800000);
+      if (d.getDay() === 6 && (week + slug.length) % 3 === 0) out.push(isoDate(d));
       d.setDate(d.getDate() + 1);
     }
     return out;

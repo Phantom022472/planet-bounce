@@ -10,7 +10,9 @@ export default function BookPage() {
       <MiniHeader />
       <main className="wrap book-page">
         <h1>Book your party</h1>
-        <BookingFlow />
+        <div className="panel">
+          <BookingFlow />
+        </div>
       </main>
     </>
   );

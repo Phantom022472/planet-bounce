@@ -9,7 +9,9 @@ export default function DonePage() {
     <>
       <MiniHeader />
       <main className="wrap book-page">
-        <Confirmation />
+        <div className="panel">
+          <Confirmation />
+        </div>
       </main>
     </>
   );
